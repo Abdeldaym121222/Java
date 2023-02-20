@@ -1,0 +1,10 @@
+// Variables
+    Variables are used to store data in a program. To declare a variable is to tell the compiler
+    what type of data a variable can hold.
+
+   data_type  variable_name = value;
+
+	int  age = 25;
+	float avg = 243.6f;
+	String str = "hello";
+	final float pi = 3.14; // constant variable

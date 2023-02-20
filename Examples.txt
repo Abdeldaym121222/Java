@@ -1,0 +1,540 @@
+//7.1 (Assign grades) Write a program that reads student scores, gets the best score,
+//and then assigns grades based on the following scheme:
+//Grade is A if score is Ú best - 10
+//Grade is B if score is Ú best - 20;
+//Grade is C if score is Ú best - 30;
+//Grade is D if score is Ú best - 40;
+//Grade is F otherwise.
+//The program prompts the user to enter the total number of students, then prompts
+//the user to enter all of the scores, and concludes by displaying the grades. Here
+//is a sample run:
+      
+ Scanner sc = new Scanner(System.in);
+ System.out.print("total number of students : ");
+ int number = sc.nextInt();
+ System.out.print("enter all of the scores : ");
+ int score []=new int[number]; 
+ for(int i = 0 ; i<number ; i++){
+     score[i] = sc.nextInt();
+ }
+  int best = 0;
+ for(int i = 0 ; i<number ; i++){
+     if(best<=score[i]){
+     
+         best = score[i];
+     }
+ } 
+     // result of grade
+     for(int i = 0 ; i< number ; i++){
+       if( score[i] >= best-10){
+           System.out.println("Student "+i+" score is "+score[i]+" and grade is A");
+        }else if(score[i] >= best-20){
+           System.out.println("Student "+i+" score is "+score[i]+" and grade is B");
+       }else if(score[i] >= best-30){
+           System.out.println("Student "+i+" score is "+score[i]+" and grade is C");
+       }else if(score[i] >= best-40){
+           System.out.println("Student "+i+" score is "+score[i]+" and grade is D");
+       }else{
+           System.out.println("Student "+i+" score is "+score[i]+" and grade is F");
+       }
+         }
+ 
+
+ 
+    } 
+}
+-------------------------------------------------------------------------------------------------
+
+// 7.2 (Reverse the numbers entered) Write a program that reads ten integers 
+// and displays them in the reverse of the order in which they were read.
+ Scanner sc = new Scanner(System.in);
+ int arr[] = new int[10];
+ for(int i = 0 ; i<arr.length ; i++){
+     arr[i] = sc.nextInt();
+ }
+ for(int x = arr.length-1 ; x>=0 ; x--){
+     System.out.print(arr[x]+" ");
+ }
+
+----------------------------------------------------------------------------------------------------------
+//7.3 (Count occurrence of numbers) Write a program that reads the integers between 1
+//and 100 and counts the occurrences of each. Assume the input ends with 0. Here
+//is a sample run of the program:
+
+int arr [] = {1,4,3,6,2,1,7,4,2};
+int arr1[] = new int[arr.length];
+for(int k=0;k<arr.length;k++){
+    arr1[k] = arr[k];
+}
+int n=0;
+Arrays.sort(arr);
+for(int j=0 ; j<arr.length;j++){
+        if(arr[n]!=arr[j]){
+          n++;
+          arr[n]=arr[j];
+        }
+
+    }
+for(int i = 0 ; i<=n ; i++){
+    int count=0;
+    for(int j=0 ; j<arr1.length;j++){
+        if(arr[i]==arr1[j])
+            count++;
+    
+    }
+    if (count>1)
+        System.out.println(arr[i]+" is occurs "+ count +" Times");
+    else
+        System.out.println(arr[i]+" is occurs "+ count +" Time");
+   
+}
+
+
+
+
+----------------------------------------------------------------------------------------------------------
+//(Analyze scores) Write a program that reads an unspecified number of scores and
+//determines how many scores are above or equal to the average and how many
+//scores are below the average. Enter a negative number to signify the end of the
+//input. Assume that the maximum number of scores is 100.
+        Scanner sc = new Scanner(System.in);
+        float sum = 0, avg = 0, count = 0;
+        int num[]=new int[1000];
+        for (int i = 1;; i++) {
+            System.out.println("enter number " + i + " : ");
+            num[i] = sc.nextInt();
+            if (num[i] == -1) {
+                break;
+            }
+            sum += num[i];
+            count++;
+        }
+        avg = sum / count;
+        System.out.println("Average : "+avg);
+        int count1 = 0, count2 = 0;
+        for (int i = 0; i < count; i++) {
+            if (num[i] >= avg) {
+                count1++;
+            } else {
+                count2++;
+            }
+        }
+        System.out.println("scores are above or equal to the average : "+count1);
+        System.out.println("scores are below to the average : "+count2);
+
+    }
+}
+
+
+
+
+----------------------------------------------------------------------------------------------------------
+//(Print distinct numbers) Write a program that reads in ten numbers and displays
+//the number of distinct numbers and the distinct numbers separated by exactly one
+//space (i.e., if a number appears multiple times, it is displayed only once). (Hint:
+//Read a number and store it to an array if it is new. If the number is already in the
+//array, ignore it.) After the input, the array contains the distinct numbers. Here is
+//the sample run of the program:
+
+
+        int arr[] = {1, 3, 2, 5, 3, 1, 6, 5, 4,7,7};
+        Arrays.sort(arr);
+        int n = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+            if (arr[n] != arr[i]) {
+
+                n++;
+                arr[n] = arr[i];
+            }
+        }
+         System.out.println("The number of distinct number is "+(n+1));
+         System.out.print("The distinct numbers are : ");
+        for(int i = 0 ; i<=n ; i++){
+            
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+
+    }
+}
+
+----------------------------------------------------------------------------------------------------------
+/*       
+(Revise Listing 5.15, PrimeNumber.java) Listing 5.15 determines whether a number
+n is prime by checking whether 2, 3, 4, 5, 6, . . . , n/2 is a divisor. If a divisor
+is found, n is not prime. A more efficient approach is to check whether any of the
+prime numbers less than or equal to 2n can divide n evenly. If not, n is prime.
+Rewrite Listing 5.15 to display the first 50 prime numbers using this approach.
+You need to use an array to store the prime numbers and later use them to check
+whether they are possible divisors for n.*/
+ 
+        int num = 2 , countPrime = 0;
+        while (num <= 1000) {
+            int count = 0;
+            for (int i = 1; i <= num; i++) {
+
+                if (num % i == 0) {
+                    count++;
+                }
+            }
+            if (count == 2) {
+                System.out.println(num);
+                countPrime++;
+            }
+            if(countPrime==50)
+                break;
+
+            num++;
+
+        }
+    }
+}
+-----------------------------------------------------------------------------------
+
+//(Count single digits) Write a program that generates 100 random integers between
+//0 and 9 and displays the count for each number. (Hint: Use an array of ten integers,
+//say counts, to store the counts for the number of 0s, 1s, . . . , 9s.)
+    Scanner sc = new Scanner(System.in);
+    int counts[]= new int[10];
+    int count[]= new int[10];
+    for(int i = 0 ; i<counts.length ; i++){
+        counts[i] = (int)(Math.random() * 10);
+        System.out.print(counts[i]+" ");
+    }
+    System.out.println();
+    for(int i = 0 ; i<counts.length ; i++){
+        count[counts[i]] ++;
+    }
+    
+    for(int i = 0 ; i<counts.length ; i++){
+        System.out.print(count[i]+" ");
+    }
+  
+------------------------------------------------------------------------------------------
+
+//(Average an array) Write two overloaded methods that return the average of an
+//array with the following headers:
+//public static int average(int[] array)
+//public static double average(double[] array)
+//Write a test program that prompts the user to enter ten double values, invokes this
+//method, and displays the average value.
+ public static int average(int[] array){
+ 
+     int sum = 0 , avg=0;
+     for(int i=0 ; i<array.length ; i++)
+         sum +=array[i];
+     avg = sum / array.length;
+     return avg;
+ }
+ 
+ // Overload
+ public static double average(double[] array){
+ double sum = 0 , avg=0;
+     for(int i=0 ; i<array.length ; i++)
+         sum +=array[i];
+     avg = sum / array.length;
+     return avg;
+ }
+   /** The method for finding a key in the list */
+    public static void main(String[] args) {
+  
+
+
+ int arr[]={1,3,5,7,9,2,4,6,8};
+ double arr1[]={1,3,5,7,9.3,2,4,6,8};
+ System.out.println(average(arr));
+ System.out.println(average(arr1));
+
+
+
+
+    }
+}
+-------------------------------------------------------------------------------
+//(Find the smallest element) Write a method that finds the smallest element in an
+ //array of double values using the following header:
+ //public static double min(double[] array)
+ //Write a test program that prompts the user to enter ten numbers, invokes this
+ //method to return the minimum value, and displays the minimum value. Here is a
+ //sample run of the program:
+public static double min(double[] array){
+
+    double small = array[0];
+    for(int i = 0 ; i<array.length ; i++){
+        if(small>=array[i]){
+            small = array[i];
+        }
+    }
+ return small;
+
+}
+    public static void main(String[] args) {
+  
+
+
+ double arr[]={3,5,7,9,1.2,2,4,6,8};
+ System.out.println(min(arr));
+------------------------------------------------------------------------------------------
+
+//(Find the index of the smallest element) Write a method that returns the index of
+//the smallest element in an array of integers. If the number of such elements is
+//greater than 1, return the smallest index. Use the following header:
+//public static int indexOfSmallestElement(double[] array)
+//Write a test program that prompts the user to enter ten numbers, invokes this
+//method to return the index of the smallest element, and displays the index.
+ //sample run of the program:
+public static int indexOfSmallestElement(double[] array){
+
+    double small = array[0];
+    int index = 0;
+    for(int i = 0 ; i<array.length ; i++){
+        if(small >= array[i]){
+            small = array[i];
+            index = i;
+        }
+    }
+ return index;
+
+}
+    public static void main(String[] args) {
+  
+
+
+ double arr[]={3,5,7,9,1.2,2,4,6,8};
+ System.out.println(indexOfSmallestElement(arr));
+
+
+
+
+    }
+}
+-----------------------------------------------------------------------------------
+//(Reverse an array) The reverse method in Section 7.7 reverses an array by
+//copying it to a new array. Rewrite the method that reverses the array passed in
+//the argument and returns this array. Write a test program that prompts the user to
+//enter ten numbers, invokes the method to reverse the numbers, and displays the
+//numbers.
+    
+    public static int [] reverse(int [] arr){
+    
+    int arr1[]=new int[arr.length];
+    for(int i = arr.length-1 , j=0 ; i >=0  ; j++ , i--){
+    
+        arr1[j] = arr[i];
+    
+    }
+    return arr1;
+    
+    }
+
+
+    public static void main(String[] args) {
+  
+
+ Scanner sc = new Scanner(System.in);
+ int arr[]={1,2,3,4,5};
+ for(int k = 0 ; k< arr.length ; k++){
+    arr[k] = sc.nextInt();
+ }
+ int [] Array = reverse(arr);
+ for(int i = 0 ; i<arr.length ; i++){
+     System.out.print(Array[i]+" ");
+ }
+ System.out.println();
+
+---------------------------------------------------------------------------------------
+//(Random number chooser) Write a method that returns a random number between
+//1 and 54, excluding the numbers passed in the argument. The method header is
+//specified as follows:
+public static int getRandom(int... numbers){
+    
+    int num = 1+(int)(Math.random()*54);
+    return num;
+
+}
+
+
+    public static void main(String[] args) {
+  
+
+ //Scanner sc = new Scanner(System.in);
+ //int arr[]={1,2,3,4,5};
+ 
+ System.out.println(getRandom(5,3,5,6,8));
+------------------------------------------------------------------------------------------
+//(Computing gcd) Write a method that returns the gcd of an unspecified number
+//of integers. The method header is specified as follows:
+//public static int gcd(int... numbers)
+//Write a test program that prompts the user to enter five numbers, invokes the
+//method to find the gcd of these numbers, and displays the gcd
+public static int gcd(int... numbers){
+
+    int large = numbers[0];
+    for(int i = 0 ; i<numbers.length ; i++){
+       if(large <= numbers[i]){
+       
+           large = numbers[i];
+       }
+    }
+     int s = 0 ;
+     for(int k = 2 ; k<=large ; k++){
+         int m = 0;
+         for(int j = 0 ;j<numbers.length ; j++){
+             if(numbers[j]%k == 0){
+             
+                 m++;
+             }
+        
+         }
+         if(m==numbers.length)
+             s = k;
+     }
+     return s;
+    
+}
+
+    public static void main(String[] args) {
+  
+
+ //Scanner sc = new Scanner(System.in);
+ //int arr[]={1,2,3,4,5};
+ 
+ System.out.println(gcd(25,125,200));
+
+------------------------------------------------------------------------------------------
+    
+//(Eliminate duplicates) Write a method that returns a new array by eliminating the
+//duplicate values in the array using the following method header:
+//public static int[] eliminateDuplicates(int[] list)
+//Write a test program that reads in ten integers, invokes the method, and displays
+//the result. Here is the sample run of the program:
+    
+public static int[] eliminateDuplicates(int[] list){
+
+    
+    Arrays.sort(list);
+    int n = 0;
+    for(int j = 0 ; j< list.length ; j++){
+    
+        if(list[n] != list[j]){
+            n++;
+            list[n] = list[j];
+        }
+    }
+    int arr1[]=new int[n+1];
+    for(int i = 0 ; i<=n ; i++){
+    
+        arr1[i] = list[i];
+    
+    }
+    return arr1;
+    
+    }
+
+
+    public static void main(String[] args) {
+  
+
+ //Scanner sc = new Scanner(System.in);
+ int arr[]={1,1,3,5,4,2,3,4,5};
+ int array[] = eliminateDuplicates(arr);
+ for(int m=0 ; m<array.length ; m++){
+ 
+ System.out.print(array[m]+" ");
+ }
+------------------------------------------------------------------------------------------
+//(Execution time) Write a program that randomly generates an array of 100,000
+//integers and a key. Estimate the execution time of invoking the linearSearch
+//method in Listing 7.6. Sort the array and estimate the execution time of invoking
+//the binarySearch method in Listing 7.7. You can use the following code
+//template to obtain the execution time:
+//long startTime = System.currentTimeMillis();
+//perform the task;
+//long endTime = System.currentTimeMillis();
+//long executionTime = endTime - startTime;
+    
+public static int linearSearch(int[] list, int key) {
+     for (int i = 0; i < list.length; i++) {
+        if (key == list[i])
+            return i;
+  }
+  return 0;
+ 
+ }
+public static int BinarySearch(int[] list, int key) {
+     int first = 0;
+     int last = list.length-1;
+     int mid = (first+last)/2;
+     Arrays.sort(list);
+     for (int i = 0; i < list.length; i++) {
+         mid = (first+last)/2;
+        if (list[mid] == key)
+            return mid;
+        else if (list[mid]>key)
+            last = mid-1;
+        else
+            first = mid+1;
+  }
+  return 0;
+ 
+ }
+
+    public static void main(String[] args) {
+  
+    long startTime = System.currentTimeMillis();
+    int key = 3;
+    int list []={1,2,3,4,5};
+    // calling Function
+   // System.out.println("index of key : "+linearSearch(list , key));
+    System.out.println("index of key : "+BinarySearch(list , key));
+    long endTime = System.currentTimeMillis();
+    long executionTime = endTime - startTime;
+    System.out.println(executionTime);
+ }
+------------------------------------------------------------------------------------------
+Scanner sc = new Scanner(System.in);
+    System.out.print("Enter the number of balls to drop : ");
+    int num1 = sc.nextInt();
+    System.out.print("Enter the number of slots in the bean machine : ");
+    int num2 = sc.nextInt();
+    int index[] = new int[num1];
+    for(int i = 0 ; i<num1 ; i++){
+        String str = "" ;
+        for(int j = 1 ; j<num2 ; j++){
+            int x = (int)(Math.random()*10);
+            if(x>5){
+              str+="L";
+            }else{
+              str+="R";
+              index[i]++;
+            }
+        }
+        System.out.println(str);
+       // slot[count1] +="0";  
+    }
+    
+        String slot[] = new String[num2];
+        for (int i = 0; i < num2; i++) {
+            slot[i]="";
+        }
+            for (int k = 0; k < num1; k++) {
+                slot[index[k]]+="0";
+
+            }
+            
+            for (int i = 0; i < num2; i++) {
+                 System.out.println(slot[i]);
+        }
+            
+        
+
+    }
+
+}
+
+------------------------------------------------------------------------------------------
+
+
+
+

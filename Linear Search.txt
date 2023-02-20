@@ -1,0 +1,21 @@
+// Linear Search
+
+ public static int linearSearch(int[] list, int key) {
+     for (int i = 0; i < list.length; i++) {
+        if (key == list[i])
+            return i;
+  }
+  return 0;
+ 
+ }
+    public static void main(String[] args) {
+      
+    long startTime = System.currentTimeMillis();  
+    int key = 3;
+    int list []={1,2,3,4,5};
+    // calling Function
+    System.out.println("index of key : "+linearSearch(list , key));
+    
+    }
+    
+}

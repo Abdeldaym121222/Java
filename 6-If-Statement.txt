@@ -1,0 +1,39 @@
+// if - else
+
+        int number = 8;
+        if (number % 2 == 0) {
+            System.out.println(number + " is even.");
+        }else
+        System.out.println(number + " is odd.");
+
+
+// Nested - If
+
+        int i = 5 , k = 7 , j = 9;
+        if (i > k) {
+            if (j > k) {
+                System.out.println("i and j are greater than k");
+            }
+        } else {
+            System.out.println("i is less than or equal to k");
+        }
+
+// if - else if - else
+
+        Scanner sc = new Scanner(System.in);
+        float score;
+        System.out.print("Enter Score : ");
+        score = sc.nextFloat();
+
+        if (score >= 90.0) {
+            System.out.print("A");
+        } else if (score >= 80.0) {
+            System.out.print("B");
+        } else if (score >= 70.0) {
+            System.out.print("C");
+        } else if (score >= 60.0) {
+            System.out.print("D");
+        } else {
+            System.out.print("F");
+        }
+        System.out.println();

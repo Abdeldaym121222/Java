@@ -1,0 +1,5 @@
+//Sorting Arrays
+	Sorting, like searching, is a common task in computer programming. Many different
+	algorithms have been developed for sorting. This section introduces an intuitive sorting
+	algorithm: selection sort.
+

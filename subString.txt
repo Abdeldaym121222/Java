@@ -1,0 +1,61 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String S = in.next();
+        int start = in.nextInt();
+        int end = in.nextInt();
+        
+        
+        System.out.println(S.substring(start, end));
+	System.out.println(S.substring(3)); // beginner
+    }
+}
+---------------------------------------------------------------
+ Scanner in = new Scanner(System.in);
+        int t=in.nextInt();
+        for(int i=0;i<t;i++){
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int n = in.nextInt();
+            for(int j=1 ; j<=n ; j++){
+                int m=0;
+                for(int k=1;k<=j;k++){
+                int z = (int) pow(2,(k-1));
+                m += z*b;
+            }
+               System.out.print((a+m)+" "); 
+            }
+           
+            
+        }
+---------------------------------------------------------------------
+       Scanner sc = new Scanner(System.in);
+        int t=sc.nextInt();
+
+        for(int i=0;i<t;i++)
+        {
+
+            try
+            {
+                long x=sc.nextLong();
+                System.out.println(x+" can be fitted in:");
+                if(x>=-128 && x<=127)System.out.println("* byte");
+                else if(x>=-32768 && x<=32767)
+                    System.out.println("* short");
+                else if(x>=pow(-2,31) && x<=pow(2,31)-1)
+                     System.out.println("* int");
+                else 
+                     System.out.println("* long");
+                //Complete the code
+            }
+            catch(Exception e)
+            {
+                System.out.println(sc.next()+" can't be fitted anywhere.");
+            }

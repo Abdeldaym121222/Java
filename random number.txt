@@ -1,0 +1,5 @@
+
+(int)(Math.random()) // random number between 0 & 1
+(int)(Math.random()*10) // random number between 0 & 9
+(int)(Math.random()*50) // random number between 0 & 49
+50 + (int)(Math.random() * 50) // random number between 50 & 99

@@ -1,0 +1,9 @@
+// input
+
+        Scanner sc = new Scanner(System.in);
+        int x ;
+        float y ;
+        x = sc.nextInt();
+        y = sc.nextFloat();
+
+        System.out.println(x + y);

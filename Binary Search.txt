@@ -1,0 +1,29 @@
+// Binary Search
+
+public static int BinarySearch(int[] list, int key) {
+     int first = 0;
+     int last = list.length-1;
+     int mid = (first+last)/2;
+     Arrays.sort(list);
+     for (int i = 0; i < list.length; i++) {
+         mid = (first+last)/2;
+        if (list[mid] == key)
+            return mid;
+        else if (list[mid]>key)
+            last = mid-1;
+        else
+            first = mid+1;
+  }
+  return 0;
+ 
+ }
+    public static void main(String[] args) {
+        
+    int key = 5;
+    int list []={1,2,3,4,5,7};
+    // calling Function
+    System.out.println("index of key : "+BinarySearch(list , key));
+    
+    }
+    
+}

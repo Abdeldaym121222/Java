@@ -1,0 +1,25 @@
+// data types
+
+//intege
+   byte x0 = 7;
+   short x1 = 2;
+   int x2 = 5;
+   long x3 = 7;
+
+// Floating-point
+   float y1 = 3.7f;
+   double y2 = 5.4;
+
+
+//Boolean
+   boolean b = true;
+
+// String 
+   String str = "welcome";
+
+// Character
+   char ch = 'A';
+
+// Comparison float & double
+1.1234567  // 7 after coma
+1.123456789012345 // 15 after coma
